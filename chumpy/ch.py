@@ -1200,7 +1200,7 @@ def depends_on(*dependencies):
             [deps.add(d) for d in dep]
     
     def _depends_on(func):
-        want_out = 'out' in inspect.getargspec(func).args
+        want_out = 'out' in inspect.getfullargspec(func).args
         
         @wraps(func)
         def with_caching(self, *args, **kwargs):
